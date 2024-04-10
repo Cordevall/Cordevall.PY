@@ -73,6 +73,7 @@
             pre-commit.hooks = {
               black.enable = true;
               nixfmt.enable = true;
+              nixfmt.package = pkgs.nixfmt-rfc-style;
               pyright.enable = true;
             };
 
