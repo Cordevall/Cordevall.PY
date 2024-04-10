@@ -10,12 +10,12 @@
   };
 
   nixConfig = {
-    extra-trusted-public-keys =
-      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, ... }:
+  outputs =
+    inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ inputs.devenv.flakeModule ];
       systems = [
@@ -26,10 +26,18 @@
         "aarch64-darwin"
       ];
 
-      perSystem = { config, self', inputs', pkgs, system, ... }:
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
         let
-          python-packages = p:
-            with p; [
+          python-packages =
+            p: with p; [
               pip
               python-lsp-server
               importmagic
@@ -37,7 +45,8 @@
               black
               mypy
             ];
-        in {
+        in
+        {
           devenv.shells.default = {
             name = "Project Name"; # TODO: Name
             difftastic.enable = true;
@@ -74,14 +83,12 @@
               black.enable = true;
               nixfmt.enable = true;
               nixfmt.package = pkgs.nixfmt-rfc-style;
-              pyright.enable = true;
+              pyright.enable = false;
             };
 
             # https://devenv.sh/integrations/dotenv/
             dotenv.enable = true;
-
           };
-
         };
       flake = { };
     };
