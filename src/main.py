@@ -1,18 +1,31 @@
 import discord
 import os
 from dotenv import load_dotenv
-from discord.ext import commands
+from discord import Embed
 
 load_dotenv()
-bot = commands.Bot(command_prefix="!", intents=discord.Intents().all())
 
 
-# Define a command that responds to "hello" with "world"
-@bot.hybrid_command()
-async def hello(ctx):
-    """Says world"""
-    await ctx.send("world")
+class Client(discord.Client):
+    async def on_ready(self):
+        print(f"Logged on as {self.user}!")
+        # Fetch the channel by its ID
+        logs_channel = self.get_channel(int(os.getenv("logsID")))
+        if logs_channel:
+            # Create an embed message
+            embed = Embed(
+                title="Bot Status", description=f"{self.user} is ready", color=0x00FF00
+            )
+            # Send the embed message to the logs channel
+            await logs_channel.send(embed=embed)
+        else:
+            print("Logs channel not found")
 
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = Client(intents=intents)
 
 # Run the bot
-bot.run(os.getenv("token"))
+client.run(os.getenv("token"))
