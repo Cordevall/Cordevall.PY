@@ -1,12 +1,13 @@
 import discord
 import os
+from discord.ext import commands
 from dotenv import load_dotenv
 from discord import Embed
 
 load_dotenv()
 
 
-class Client(discord.Client):
+class Client(commands.Bot):
     async def on_ready(self):
         print(f"Logged on as {self.user}!")
         # Fetch the channel by its ID
@@ -26,6 +27,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = Client(intents=intents)
+
 
 # Run the bot
 client.run(os.getenv("token"))
