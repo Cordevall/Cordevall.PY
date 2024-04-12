@@ -40,6 +40,7 @@ We have combined of all of the infomation of the flake [here](#flake-infomation)
 ### Loading Nix Enviroment
 To load the enviroment for Nix/NixOS by using
 ```
+export NIXPKGS_ALLOW_UNFREE=1
 nix develop --impure
 ``` 
 
