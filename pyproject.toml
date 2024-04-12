@@ -10,6 +10,7 @@ pyfiglet = "*"
 termcolor = "*"
 python-dotenv = "*"
 discord = "^2.3.2"
+pynacl = "^1.5.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,4 +1,5 @@
 discord
+PyNaCl
 pyfiglet 
 termcolor 
 python-dotenv 
