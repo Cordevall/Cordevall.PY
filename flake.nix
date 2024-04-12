@@ -86,6 +86,17 @@
               pyright.enable = false;
             };
 
+            services.mongodb = {
+              enable = true;
+              initDatabaseUsername = "testing";
+              initDatabasePassword = "test123";
+              additionalArgs = [
+                "--port"
+                "27017"
+                "--noauth"
+              ];
+            };
+
             # https://devenv.sh/integrations/dotenv/
             dotenv.enable = true;
           };
