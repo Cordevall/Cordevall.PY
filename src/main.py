@@ -1,31 +1,17 @@
-import os
 import discord
-from discord.ext import commands
-from pyfiglet import figlet_format
-from termcolor import colored
+import os
 from dotenv import load_dotenv
+from discord.ext import commands
 
-bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-
-
-class Client(commands.Bot):
-    def __init__(self):
-        super().__init__(command_prefix=".", intents=discord.Intents.all())
-        self.cogslist = ["cog1"]
-
-        async def on_ready(self):
-            print(" Logged in as " + self.user.name)
-            synced = await self.tree.sync()
-
-        async def setup_hook(self):
-            for ext in self.cogslist:
-                await self.load_extension("Cogs." + ext)
-
-
-client = Client()
-
-# Read the token from the .env file
 load_dotenv()
-token = os.getenv("token")
+bot = commands.Bot(command_prefix="!", intents=discord.Intents().all())
 
-client.run(token)
+
+# Define a command that responds to "hello" with "world"
+@bot.hybrid_command()
+async def hello(ctx):
+    await ctx.send("world")
+
+
+# Run the bot
+bot.run(os.getenv("token"))

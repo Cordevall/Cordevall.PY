@@ -5,11 +5,11 @@ description = "A python Discord Bot"
 authors = []
 
 [tool.poetry.dependencies]
-python = ">=3.7"
-discord = "*"
+python = ">=3.8"
 pyfiglet = "*"
 termcolor = "*"
 python-dotenv = "*"
+discord = "^2.3.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
