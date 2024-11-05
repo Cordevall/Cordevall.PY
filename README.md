@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Most of this discord bot is getting rewroked on based on the notices to make all discord bot better
+> Most of this discord bot is getting reworked on based on the notices to make all discord bot better
 
 <!-- Divider Color #3776ab -->
 # Cordevall Python Discord Bot Template
@@ -11,8 +11,8 @@ A Python Discord Bot for all
 
 ## Features
 - Both Slash Commands and Text-Commands using `!`.
-- One Place for Multiple Cogs to orgnize your Cogs!
-- Management though a lightweight Dashborad using `flask`.
+- One Place for Multiple Cogs to organize your Cogs!
+- Management though a lightweight Dashboard using `flask`.
 
 
 ##  Table of Contents
@@ -21,10 +21,10 @@ A Python Discord Bot for all
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
-  - [Nix | Reccomended for Nix/NixOS users](#nix--reccomended-for-nixnixos-users)
-    - [Loading Nix Enviroment](#loading-nix-enviroment)
-    - [Flake Infomation](#flake-infomation)
-  - [Poetry | Virtual Enviroments Reccomended](#poetry-virtual-enviroments-reccomended)
+  - [Nix | Recommended for Nix/NixOS users](#nix--recommended-for-nixnixos-users)
+    - [Loading Nix Environment](#loading-nix-environment)
+    - [Flake Information](#flake-information)
+  - [Poetry | Virtual Environments Recommended](#poetry-virtual-environments-recommended)
   - [Python](#python)
 - [Setting up the bot](#setting-up-the-bot)
   - [So what you require to get this bot working?](#so-what-you-require-to-get-this-bot-working)
@@ -33,12 +33,12 @@ A Python Discord Bot for all
 
 # Installation
 
-## Nix | Reccomended for Nix/NixOS users
+## Nix | Recommended for Nix/NixOS users
 Your in luck Nix/NixOS users we have included a `flake.nix` ready for you to use.
-We have combined of all of the infomation of the flake [here](#flake-infomation)
+We have combined of all of the information of the flake [here](#flake-information)
 
-### Loading Nix Enviroment
-To load the enviroment for Nix/NixOS by using
+### Loading Nix Environment
+To load the environment for Nix/NixOS by using
 ```
 export NIXPKGS_ALLOW_UNFREE=1
 nix develop --impure
@@ -47,14 +47,14 @@ nix develop --impure
 or you can do the automatic way by installing [direnv][direnv].
 
 
-### Flake Infomation
+### Flake Information
 - Devenv for devenvioments. 
 - Installs Poetry and Python.
 - Git Hooks to format and lint python and nix files.
-- Automatic loading of dev enviroments via `direnv`.
+- Automatic loading of dev environments via `direnv`.
 
 
-## Poetry | Virtual Enviroments Reccomended
+## Poetry | Virtual Environments Recommended
 > [!CAUTION]
 > Poetry should always be installed in a dedicated virtual environment to isolate it from the rest of your system. It should in no case be installed in the environment of the project that is to be managed by Poetry. This ensures that Poetry’s own dependencies will not be accidentally upgraded or uninstalled. (Each of the following installation methods ensures that Poetry is installed into an isolated environment.) In addition, the isolated virtual environment in which poetry is installed should not be activated for running poetry commands.
 
