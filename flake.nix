@@ -2,7 +2,7 @@
   description = "Project Description"; # TODO: Description
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs";
     devenv.url = "github:cachix/devenv";
     nix2container.url = "github:nlewo/nix2container";
     nix2container.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,6 @@
         "aarch64-linux"
         "aarch64-darwin"
       ];
-
       perSystem =
         {
           config,
@@ -47,6 +46,12 @@
             ];
         in
         {
+        _module.args.pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          config.permittedInsecurePackages = [ "mongodb" ];
+        };
+
           devenv.shells.default = {
             name = "Project Name"; # TODO: Name
             difftastic.enable = true;
@@ -88,6 +93,7 @@
 
             services.mongodb = {
               enable = true;
+              package = pkgs.mongodb;
               initDatabaseUsername = "testing";
               initDatabasePassword = "test123";
               additionalArgs = [
@@ -101,6 +107,7 @@
             dotenv.enable = true;
           };
         };
-      flake = { };
+      flake = { 
+      };
     };
 }
