@@ -1,0 +1,4 @@
+{
+  "cSpell.ignorePaths": ["**/**/*", "!**/**/*.md"],
+  "cSpell.words": ["Cordevall", "devenv", "direnv", "NIXPKGS"]
+}
